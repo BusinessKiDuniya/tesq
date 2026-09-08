@@ -62,60 +62,199 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="hero-surface diag-edge text-primary-foreground">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 lg:grid-cols-2 lg:py-24">
+      <section className="hero-surface diag-edge relative isolate overflow-hidden text-primary-foreground">
+        {/* Ambient background effects */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute -left-32 -top-32 size-[420px] rounded-full bg-accent/10 blur-3xl" />
+          <div className="absolute -bottom-40 right-0 size-[500px] rounded-full bg-accent/10 blur-3xl" />
+
+          {/* Engineering grid */}
+          <div
+            className="absolute inset-0 opacity-[0.06]"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px)",
+              backgroundSize: "48px 48px",
+            }}
+          />
+        </div>
+
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-14 sm:px-6 lg:grid-cols-[1.05fr_.95fr] lg:gap-16 lg:py-24">
+          {/* LEFT CONTENT */}
           <div className="relative z-10">
-            <p className="eyebrow">Energy Efficiency Capacitors</p>
-            <h1 className="mt-4 text-4xl leading-tight font-extrabold sm:text-5xl lg:text-6xl">
-              Heavy micron capacitors,
-              <span className="block text-accent">engineered in India</span>
+            {/* Eyebrow / live badge */}
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.07] px-4 py-2 backdrop-blur-md">
+              <span className="relative flex size-2">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-75" />
+                <span className="relative inline-flex size-2 rounded-full bg-accent" />
+              </span>
+
+              <span className="text-xs font-bold tracking-[0.16em] text-primary-foreground/80 uppercase">
+                Energy Efficiency Capacitors
+              </span>
+            </div>
+
+            {/* Main heading */}
+            <h1 className="max-w-4xl text-4xl leading-[1.05] font-black tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
+              Heavy micron capacitors
+              <span className="mt-2 block text-accent">
+                engineered for performance.
+              </span>
             </h1>
-            <p className="mt-5 max-w-xl text-base text-primary-foreground/80 sm:text-lg">
+
+            {/* Accent line */}
+            <div className="mt-6 flex items-center gap-3">
+              <span className="h-1 w-16 rounded-full bg-accent" />
+              <span className="text-xs font-semibold tracking-[0.2em] text-primary-foreground/50 uppercase">
+                Engineered in India
+              </span>
+            </div>
+
+            <p className="mt-7 max-w-2xl text-base leading-7 text-primary-foreground/75 sm:text-lg">
               TESQ Capacitors manufactures MPP self-healing, electrolytic and
-              gel filled capacitors for ceiling fans, coolers, submersible
+              gel-filled capacitors for ceiling fans, coolers, submersible
               pumps, air conditioning and industrial motors — built to IS:1709
-              and IS:2993 and 100% tested before dispatch.
+              and IS:2993, with every unit tested before dispatch.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+
+            {/* CTAs */}
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/products"
-                className="inline-flex items-center gap-2 rounded-md bg-accent px-6 py-3 text-sm font-bold text-accent-foreground transition-opacity hover:opacity-90"
+                className="group inline-flex items-center justify-center gap-3 rounded-xl bg-accent px-7 py-4 text-sm font-extrabold text-accent-foreground shadow-[0_10px_35px_rgba(0,0,0,.2)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_45px_rgba(0,0,0,.3)]"
               >
-                View Product Range <ArrowRightIcon className="size-4" />
+                Explore Product Range
+                <ArrowRightIcon className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
+
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-md border border-white/30 px-6 py-3 text-sm font-bold transition-colors hover:bg-white/10"
+                className="group inline-flex items-center justify-center gap-3 rounded-xl border border-white/20 bg-white/[0.06] px-7 py-4 text-sm font-bold backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:bg-white/10"
               >
                 Send Bulk Enquiry
+                <span className="text-accent transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
               </Link>
             </div>
-            <dl className="mt-10 grid max-w-lg grid-cols-3 gap-4 border-t border-white/15 pt-6">
+
+            {/* Trust points */}
+            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-xs font-medium text-primary-foreground/55">
+              <span className="flex items-center gap-2">
+                <span className="text-accent">✓</span>
+                IS:1709 Compliant
+              </span>
+
+              <span className="flex items-center gap-2">
+                <span className="text-accent">✓</span>
+                IS:2993 Compliant
+              </span>
+
+              <span className="flex items-center gap-2">
+                <span className="text-accent">✓</span>
+                100% Tested
+              </span>
+            </div>
+
+            {/* Stats */}
+            <dl className="mt-10 grid max-w-2xl grid-cols-3 border-y border-white/10">
               {[
-                ["15+", "Years of expertise"],
+                ["15+", "Years expertise"],
                 ["12", "Capacitor series"],
                 ["100%", "Tested output"],
-              ].map(([k, v]) => (
-                <div key={v}>
-                  <dt className="text-3xl font-extrabold text-accent">{k}</dt>
-                  <dd className="text-xs tracking-wide text-primary-foreground/70 uppercase">
-                    {v}
+              ].map(([value, label], index) => (
+                <div
+                  key={label}
+                  className={`group py-5 ${
+                    index !== 2 ? "border-r border-white/10" : ""
+                  }`}
+                >
+                  <dt className="text-2xl font-black text-accent transition-transform duration-300 group-hover:scale-105 sm:text-3xl">
+                    {value}
+                  </dt>
+
+                  <dd className="mt-1 text-[10px] font-semibold tracking-wider text-primary-foreground/50 uppercase sm:text-xs">
+                    {label}
                   </dd>
                 </div>
               ))}
             </dl>
           </div>
-          <div className="relative z-10">
-            <img
-              src={"/images/products/group.jpg"}
-              alt="Range of TESQ capacitors including box type, cylindrical and square capacitors"
-              className="w-full rounded-lg bg-white/95 p-4 shadow-2xl"
-              loading="eager"
-            />
+
+          {/* RIGHT PRODUCT SHOWCASE */}
+          <div className="relative z-10 lg:pl-4">
+            {/* Decorative ring */}
+            <div className="pointer-events-none absolute -inset-6 rounded-[2rem] border border-white/10" />
+            <div className="pointer-events-none absolute -inset-12 rounded-[3rem] border border-accent/10" />
+
+            {/* Product card */}
+            <div className="group relative overflow-hidden rounded-3xl border border-white/15 bg-white/[0.08] p-3 shadow-2xl backdrop-blur-md transition-transform duration-500 hover:-translate-y-2">
+              {/* Top label */}
+              <div className="absolute left-7 top-7 z-20 rounded-full border border-black/10 bg-white/90 px-4 py-2 text-[10px] font-black tracking-[0.15em] text-gray-800 uppercase shadow-lg backdrop-blur">
+                TESQ Performance Series
+              </div>
+
+              {/* Image */}
+              <div className="relative overflow-hidden rounded-2xl bg-white">
+                <img
+                  src="/images/products/group.jpg"
+                  alt="Range of TESQ capacitors including box type, cylindrical and square capacitors"
+                  className="w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  loading="eager"
+                />
+
+                {/* Image gradient */}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+              </div>
+
+              {/* Floating product info */}
+              <div className="absolute bottom-7 left-7 right-7 flex items-end justify-between">
+                <div className="rounded-xl border border-white/20 bg-black/45 px-4 py-3 text-white shadow-xl backdrop-blur-md">
+                  <p className="text-[10px] font-bold tracking-wider text-white/60 uppercase">
+                    Built for
+                  </p>
+                  <p className="mt-1 text-sm font-bold">
+                    Motors • Fans • Pumps • HVAC
+                  </p>
+                </div>
+
+                <Link
+                  href="/products"
+                  aria-label="View TESQ products"
+                  className="group/arrow flex size-12 items-center justify-center rounded-xl bg-accent text-accent-foreground shadow-xl transition-all duration-300 hover:scale-110"
+                >
+                  <ArrowRightIcon className="size-5 transition-transform group-hover/arrow:translate-x-1" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Floating quality badge */}
+            <div className="absolute -bottom-6 -left-5 hidden rounded-2xl border border-white/15 bg-[#111827]/90 px-5 py-4 shadow-2xl backdrop-blur-xl sm:block">
+              <div className="flex items-center gap-3">
+                <div className="flex size-10 items-center justify-center rounded-full bg-accent/15 text-lg text-accent">
+                  ✓
+                </div>
+
+                <div>
+                  <p className="text-xs font-black">Quality Tested</p>
+                  <p className="mt-0.5 text-[10px] text-white/50">
+                    Before every dispatch
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Floating engineering tag */}
+            <div className="absolute -right-3 -top-5 hidden rounded-xl border border-white/10 bg-white/10 px-4 py-3 shadow-xl backdrop-blur-xl md:block">
+              <p className="text-[9px] font-bold tracking-widest text-white/50 uppercase">
+                Made in
+              </p>
+              <p className="text-sm font-black text-accent">INDIA 🇮🇳</p>
+            </div>
           </div>
         </div>
       </section>
-
+      
       <section className="relative z-20 mx-auto -mt-7 max-w-6xl px-4">
         <div className="grid border border-border bg-card shadow-lg sm:grid-cols-3">
           {[
@@ -145,7 +284,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
       {/* Trust strip */}
       <section className="border-b border-border bg-surface mt-16">
         <div className="mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -165,7 +303,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
       {/* Products */}
       <section className="mx-auto max-w-7xl px-4 py-16 lg:py-20">
         <div className="flex flex-wrap items-end justify-between gap-4">
@@ -256,7 +393,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Why TESQ */}
       <section className="bg-surface py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4">
@@ -292,7 +428,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Segments we serve */}
       <section className="border-y border-border py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 text-center">
@@ -315,7 +450,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* The company we are */}
       <section className="overflow-hidden bg-card">
         <div className="mx-auto grid max-w-7xl items-stretch lg:grid-cols-2">
@@ -375,7 +509,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* CTA */}
       <section className="border-t border-border bg-surface">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-14 lg:grid-cols-[1fr_auto] lg:items-center">
