@@ -45,48 +45,67 @@ export default function Products() {
           ))}
         </div>
 
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {list.map((p) => (
-            <Link
-              key={p.slug}
-              href={"/products/" + p.slug}
-              className="card-industrial group flex flex-col overflow-hidden"
-            >
-              <div className="flex h-52 items-center justify-center bg-surface p-4">
-                <img
-                  src={p.image}
-                  alt={p.name}
-                  loading="lazy"
-                  className="max-h-full w-auto object-contain"
-                />
-              </div>
-              <div className="flex flex-1 flex-col border-t border-border p-5">
-                <p className="text-[11px] font-bold tracking-widest text-muted-foreground uppercase">
-                  {p.category}
-                </p>
-                <h2 className="mt-1 text-lg font-bold group-hover:text-primary">
-                  {p.name}
-                </h2>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  {p.tagline}
-                </p>
-                <dl className="mt-4 space-y-1 text-sm">
-                  <div className="flex gap-2">
-                    <dt className="font-semibold">MFD:</dt>
-                    <dd className="text-muted-foreground">{p.mfd}</dd>
-                  </div>
-                  <div className="flex gap-2">
-                    <dt className="font-semibold">Volt:</dt>
-                    <dd className="text-muted-foreground">{p.volt}</dd>
-                  </div>
-                </dl>
-                <p className="mt-auto pt-4 inline-flex items-center gap-1 text-sm font-bold text-primary">
-                  Full specifications <ArrowRightIcon className="size-4" />
-                </p>
-              </div>
-            </Link>
-          ))}
-        </div>
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+  {list.map((p) => (
+    <Link
+      key={p.slug}
+      href={"/products/" + p.slug}
+      className="card-industrial group flex flex-col overflow-hidden"
+    >
+      {/* Product image */}
+      <div className="relative aspect-square w-full overflow-hidden bg-[#f4f4f2]">
+        <img
+          src={p.image}
+          alt={p.name}
+          loading="lazy"
+          className="
+            block
+            h-full
+            w-full
+            object-cover
+            object-center
+            transition-transform
+            duration-500
+            group-hover:scale-[1.03]
+          "
+        />
+      </div>
+
+      {/* Product details */}
+      <div className="flex flex-1 flex-col border-t border-border p-5">
+        <p className="text-[11px] font-bold tracking-widest text-muted-foreground uppercase">
+          {p.category}
+        </p>
+
+        <h2 className="mt-1 text-lg font-bold group-hover:text-primary">
+          {p.name}
+        </h2>
+
+        <p className="mt-2 text-sm text-muted-foreground">
+          {p.tagline}
+        </p>
+
+        <dl className="mt-4 space-y-1 text-sm">
+          <div className="flex gap-2">
+            <dt className="font-semibold">MFD:</dt>
+            <dd className="text-muted-foreground">{p.mfd}</dd>
+          </div>
+
+          <div className="flex gap-2">
+            <dt className="font-semibold">Volt:</dt>
+            <dd className="text-muted-foreground">{p.volt}</dd>
+          </div>
+        </dl>
+
+        <p className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-bold text-primary">
+          Full specifications
+          <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-1" />
+        </p>
+      </div>
+    </Link>
+  ))}
+</div>
+
       </section>
     </div>
   );

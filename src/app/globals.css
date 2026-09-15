@@ -186,3 +186,40 @@
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+
+@keyframes heroContentIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-45px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes productIn {
+  0% {
+    opacity: 0;
+    transform: translateX(60px) scale(0.94);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes numberIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) translateX(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
