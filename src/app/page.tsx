@@ -1,5 +1,6 @@
 "use client";
-import { products } from "@/data";
+
+import { capacitorProducts } from "@/data";
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
@@ -118,7 +119,6 @@ export default function Home() {
     setActive((prev) => (prev - 1 + SLIDES.length) % SLIDES.length);
   };
 
-  // Auto slider
   useEffect(() => {
     if (isPaused) return;
 
@@ -128,6 +128,36 @@ export default function Home() {
 
     return () => window.clearTimeout(timer);
   }, [active, isPaused]);
+
+  /*
+   * Your actual product data does not contain `name`, `slug`,
+   * `category` or `mfd`.
+   *
+   * These helpers derive the display values from the actual
+   * CapacitorProduct structure.
+   */
+  const getProductName = (product: (typeof capacitorProducts)[number]) => {
+    if (product.modelCode) {
+      return product.modelCode;
+    }
+
+    return `${product.capacitance} Capacitor`;
+  };
+
+  const getProductDescription = (
+    product: (typeof capacitorProducts)[number],
+  ) => {
+    return `${product.capacitance} • ${product.ratedVoltage} • ${product.ratedFrequency}`;
+  };
+
+  const featuredProducts = [
+    capacitorProducts[0],
+    capacitorProducts[4],
+    capacitorProducts[5],
+    capacitorProducts[8],
+    capacitorProducts[11],
+    capacitorProducts[15],
+  ];
 
   return (
     <div>
@@ -153,12 +183,12 @@ export default function Home() {
         {/* Background shape */}
         <div
           className="
-      pointer-events-none absolute
-      -right-[15%] top-0
-      h-full w-[65%]
-      bg-[#e8edf5]
-      [clip-path:polygon(18%_0,100%_0,100%_100%,0_100%)]
-    "
+            pointer-events-none absolute
+            -right-[15%] top-0
+            h-full w-[65%]
+            bg-[#e8edf5]
+            [clip-path:polygon(18%_0,100%_0,100%_100%,0_100%)]
+          "
         />
 
         {/* Slider viewport */}
@@ -175,14 +205,14 @@ export default function Home() {
                   {/* LEFT */}
                   <div
                     className={`
-                max-w-2xl
-                transition-all duration-700
-                ${
-                  active === index
-                    ? "translate-x-0 opacity-100"
-                    : "translate-x-8 opacity-0"
-                }
-              `}
+                      max-w-2xl
+                      transition-all duration-700
+                      ${
+                        active === index
+                          ? "translate-x-0 opacity-100"
+                          : "translate-x-8 opacity-0"
+                      }
+                    `}
                   >
                     {/* Eyebrow */}
                     <div className="mb-6 flex items-center gap-3">
@@ -212,17 +242,17 @@ export default function Home() {
                       <Link
                         href="/products"
                         className="
-                    group inline-flex items-center
-                    justify-center gap-3
-                    rounded-md
-                    bg-[#123b82]
-                    px-7 py-4
-                    text-sm font-bold text-white
-                    shadow-[0_12px_30px_rgba(18,59,130,.18)]
-                    transition-all duration-300
-                    hover:-translate-y-0.5
-                    hover:bg-[#0d2d66]
-                  "
+                          group inline-flex items-center
+                          justify-center gap-3
+                          rounded-md
+                          bg-[#123b82]
+                          px-7 py-4
+                          text-sm font-bold text-white
+                          shadow-[0_12px_30px_rgba(18,59,130,.18)]
+                          transition-all duration-300
+                          hover:-translate-y-0.5
+                          hover:bg-[#0d2d66]
+                        "
                       >
                         Explore Products
                         <ArrowRightIcon className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -231,18 +261,18 @@ export default function Home() {
                       <Link
                         href="/contact"
                         className="
-                    inline-flex items-center
-                    justify-center gap-3
-                    rounded-md
-                    border border-[#d0d5dd]
-                    bg-white
-                    px-7 py-4
-                    text-sm font-bold
-                    text-[#101828]
-                    transition-all duration-300
-                    hover:border-[#123b82]
-                    hover:text-[#123b82]
-                  "
+                          inline-flex items-center
+                          justify-center gap-3
+                          rounded-md
+                          border border-[#d0d5dd]
+                          bg-white
+                          px-7 py-4
+                          text-sm font-bold
+                          text-[#101828]
+                          transition-all duration-300
+                          hover:border-[#123b82]
+                          hover:text-[#123b82]
+                        "
                       >
                         Request a Quote
                       </Link>
@@ -269,29 +299,29 @@ export default function Home() {
                   {/* RIGHT IMAGE */}
                   <div
                     className={`
-                relative flex min-h-[400px]
-                items-center justify-center
-                transition-all duration-700
-                ${
-                  active === index
-                    ? "translate-x-0 scale-100 opacity-100"
-                    : "translate-x-12 scale-95 opacity-0"
-                }
-              `}
+                      relative flex min-h-[400px]
+                      items-center justify-center
+                      transition-all duration-700
+                      ${
+                        active === index
+                          ? "translate-x-0 scale-100 opacity-100"
+                          : "translate-x-12 scale-95 opacity-0"
+                      }
+                    `}
                   >
                     {/* Giant number */}
                     <div
                       className="
-                  pointer-events-none
-                  absolute right-0 top-1/2
-                  -translate-y-1/2
-                  select-none
-                  text-[180px]
-                  font-black
-                  leading-none
-                  text-[#123b82]/[0.035]
-                  lg:text-[300px]
-                "
+                        pointer-events-none
+                        absolute right-0 top-1/2
+                        -translate-y-1/2
+                        select-none
+                        text-[180px]
+                        font-black
+                        leading-none
+                        text-[#123b82]/[0.035]
+                        lg:text-[300px]
+                      "
                     >
                       {String(index + 1).padStart(2, "0")}
                     </div>
@@ -308,24 +338,24 @@ export default function Home() {
                         height={650}
                         priority={index === 0}
                         className="
-                    relative z-10
-                    h-auto w-full
-                    object-contain
-                    drop-shadow-[0_25px_35px_rgba(16,24,40,.18)]
-                  "
+                          relative z-10
+                          h-auto w-full
+                          object-contain
+                          drop-shadow-[0_25px_35px_rgba(16,24,40,.18)]
+                        "
                       />
 
                       {/* Product tag */}
                       <div
                         className="
-                    absolute bottom-4 left-4 z-20
-                    rounded-lg
-                    border border-white/80
-                    bg-white/90
-                    px-4 py-3
-                    shadow-lg
-                    backdrop-blur
-                  "
+                          absolute bottom-4 left-4 z-20
+                          rounded-lg
+                          border border-white/80
+                          bg-white/90
+                          px-4 py-3
+                          shadow-lg
+                          backdrop-blur
+                        "
                       >
                         <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-[#98a2b3]">
                           TESQ
@@ -339,14 +369,14 @@ export default function Home() {
                       {/* Application */}
                       <div
                         className="
-                    absolute right-4 top-4 z-20
-                    hidden rounded-lg
-                    bg-[#123b82]
-                    px-4 py-3
-                    text-white
-                    shadow-xl
-                    sm:block
-                  "
+                          absolute right-4 top-4 z-20
+                          hidden rounded-lg
+                          bg-[#123b82]
+                          px-4 py-3
+                          text-white
+                          shadow-xl
+                          sm:block
+                        "
                       >
                         <p className="text-[9px] font-bold uppercase tracking-[0.15em] text-white/60">
                           Applications
@@ -377,15 +407,15 @@ export default function Home() {
             onClick={previousSlide}
             aria-label="Previous slide"
             className="
-    flex size-11 items-center
-    justify-center rounded-full
-    border border-[#d0d5dd]
-    bg-white text-[#344054]
-    shadow-sm
-    transition-all
-    hover:border-[#123b82]
-    hover:text-[#123b82]
-  "
+              flex size-11 items-center
+              justify-center rounded-full
+              border border-[#d0d5dd]
+              bg-white text-[#344054]
+              shadow-sm
+              transition-all
+              hover:border-[#123b82]
+              hover:text-[#123b82]
+            "
           >
             <ArrowLeftIcon className="size-4" />
           </button>
@@ -402,9 +432,13 @@ export default function Home() {
               >
                 <span
                   className={`
-        block h-full transition-all duration-500
-        ${active === index ? "w-12 bg-[#f15a29]" : "w-6 bg-transparent"}
-      `}
+                    block h-full transition-all duration-500
+                    ${
+                      active === index
+                        ? "w-12 bg-[#f15a29]"
+                        : "w-6 bg-transparent"
+                    }
+                  `}
                 />
               </button>
             ))}
@@ -416,14 +450,14 @@ export default function Home() {
             onClick={nextSlide}
             aria-label="Next slide"
             className="
-    flex size-11 items-center
-    justify-center rounded-full
-    bg-[#123b82]
-    text-white
-    shadow-sm
-    transition-all
-    hover:bg-[#0d2d66]
-  "
+              flex size-11 items-center
+              justify-center rounded-full
+              bg-[#123b82]
+              text-white
+              shadow-sm
+              transition-all
+              hover:bg-[#0d2d66]
+            "
           >
             <ArrowRightIcon className="size-4" />
           </button>
@@ -438,14 +472,15 @@ export default function Home() {
         {/* Bottom angled edge */}
         <div
           className="
-      absolute bottom-0 left-0
-      h-10 w-full
-      bg-white
-      [clip-path:polygon(0_100%,100%_100%,100%_0,0_70%)]
-    "
+            absolute bottom-0 left-0
+            h-10 w-full
+            bg-white
+            [clip-path:polygon(0_100%,100%_100%,100%_0,0_70%)]
+          "
         />
       </section>
 
+      {/* Product Series Navigation */}
       <section className="relative z-20 mx-auto -mt-7 max-w-6xl px-4">
         <div className="grid border border-border bg-card shadow-lg sm:grid-cols-3">
           {[
@@ -456,52 +491,59 @@ export default function Home() {
             <Link
               key={title}
               href="/products"
-              // search={{ category: title }}
               className="group flex items-center justify-between gap-4 border-b border-border px-6 py-5 last:border-b-0 sm:border-r sm:border-b-0 sm:last:border-r-0"
             >
               <span>
                 <span className="block text-[11px] font-bold uppercase text-muted-foreground">
                   0{index + 1} / Series
                 </span>
+
                 <span className="mt-1 block font-display text-base font-bold group-hover:text-primary">
                   {title}
                 </span>
+
                 <span className="mt-1 block text-xs text-muted-foreground">
                   {detail}
                 </span>
               </span>
+
               <ArrowRightIcon className="size-5 shrink-0 text-signal transition-transform group-hover:translate-x-1" />
             </Link>
           ))}
         </div>
       </section>
-      {/* Trust strip */}
-      <section className="border-b border-border bg-surface mt-16">
+
+      {/* Trust Strip */}
+      <section className="mt-16 border-b border-border bg-surface">
         <div className="mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:grid-cols-2 lg:grid-cols-4">
           {[
             "ISO 9001:2015 Certified Company",
             "IS:1709 &amp; IS:2993 Compliant",
             "RoHS Compliant Materials",
             "Burst Proof, Self-Healing Design",
-          ].map((t) => (
-            <div key={t} className="flex items-center gap-3">
+          ].map((text) => (
+            <div key={text} className="flex items-center gap-3">
               <CheckCircleIcon className="size-5 shrink-0 text-accent" />
+
               <span
                 className="text-sm font-semibold text-foreground/85"
-                dangerouslySetInnerHTML={{ __html: t }}
+                dangerouslySetInnerHTML={{ __html: text }}
               />
             </div>
           ))}
         </div>
       </section>
+
       {/* Products */}
       <section className="mx-auto max-w-7xl px-4 py-16 lg:py-20">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="eyebrow">Product Catalogue</p>
+
             <h2 className="mt-2 text-3xl font-extrabold sm:text-4xl">
               Capacitors for every motor duty
             </h2>
+
             <span className="rule-accent mt-4" />
           </div>
 
@@ -509,62 +551,63 @@ export default function Home() {
             href="/products"
             className="text-sm font-bold text-primary hover:underline"
           >
-            See all 12 series →
+            See all {capacitorProducts.length} products →
           </Link>
         </div>
 
         <div className="relative mt-10">
-          {/* Slider */}
+          {/* Product Slider */}
           <div
             id="product-slider"
             className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 scrollbar-hide"
           >
-            {products.slice(0, 6).map((p) => (
+            {featuredProducts.map((product) => (
               <Link
-                key={p.slug}
-                href={"/products/" + p.slug}
+                key={product.id}
+                href={`/products/${product.id}`}
                 className="
-        group
-        shrink-0
-        snap-start
-        overflow-hidden
-        card-industrial
-
-        w-[85%]
-        sm:w-[calc((100%-24px)/2)]
-        lg:w-[calc((100%-72px)/4)]
-      "
+                  group
+                  shrink-0
+                  snap-start
+                  overflow-hidden
+                  card-industrial
+                  w-[85%]
+                  sm:w-[calc((100%-24px)/2)]
+                  lg:w-[calc((100%-72px)/4)]
+                "
               >
                 {/* IMAGE */}
                 <div className="relative aspect-square w-full overflow-hidden">
                   <img
-                    src={p.image}
-                    alt={p.name}
+                    src={`/images/products/capacitor_products/${product.image}`}
+                    alt={getProductName(product)}
                     loading="lazy"
                     className="
-            block
-            h-full
-            w-full
-            object-cover
-            object-center
-            transition-transform
-            duration-500
-            group-hover:scale-[1.03]
-          "
+                      block
+                      h-full
+                      w-full
+                      object-contain
+                      object-center
+                      transition-transform
+                      duration-500
+                      group-hover:scale-[1.03]
+                    "
                   />
                 </div>
 
                 {/* CONTENT */}
                 <div className="border-t border-border bg-card p-5">
-                  <p className="text-[11px] font-bold tracking-widest text-muted-foreground uppercase">
-                    {p.category}
+                  <p className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
+                    {product.application}
                   </p>
 
                   <h3 className="mt-1 text-lg font-bold group-hover:text-primary">
-                    {p.name}
+                    {getProductName(product)}
                   </h3>
 
-                  <p className="mt-2 text-sm text-muted-foreground">{p.mfd}</p>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    {getProductDescription(product)}
+                  </p>
 
                   <p className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-primary">
                     Specifications
@@ -587,7 +630,7 @@ export default function Home() {
               }}
               className="flex size-11 items-center justify-center border border-border bg-background text-foreground transition hover:bg-primary hover:text-white"
             >
-              ←
+              <ArrowLeftIcon className="size-4" />
             </button>
 
             <button
@@ -600,38 +643,44 @@ export default function Home() {
               }}
               className="flex size-11 items-center justify-center border border-border bg-background text-foreground transition hover:bg-primary hover:text-white"
             >
-              →
+              <ArrowRightIcon className="size-4" />
             </button>
           </div>
         </div>
       </section>
+
       {/* Why TESQ */}
       <section className="bg-surface py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4">
           <p className="eyebrow">Why TESQ</p>
+
           <h2 className="mt-2 max-w-2xl text-3xl font-extrabold sm:text-4xl">
             Reliability and safety on every installation
           </h2>
+
           <span className="rule-accent mt-4" />
+
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
-            {strengths.map((s) => (
+            {strengths.map((strength) => (
               <div
-                key={s.title}
+                key={strength.title}
                 className="rounded-lg border border-border bg-card p-7"
               >
-                <s.icon className="size-8 text-primary" />
+                <strength.icon className="size-8 text-primary" />
+
                 <h3
                   className="mt-4 text-xl font-bold"
-                  dangerouslySetInnerHTML={{ __html: s.title }}
+                  dangerouslySetInnerHTML={{ __html: strength.title }}
                 />
+
                 <ul className="mt-4 space-y-2.5">
-                  {s.points.map((pt) => (
+                  {strength.points.map((point) => (
                     <li
-                      key={pt}
+                      key={point}
                       className="flex gap-2 text-sm text-muted-foreground"
                     >
                       <CheckCircleIcon className="mt-0.5 size-4 shrink-0 text-accent" />
-                      {pt}
+                      {point}
                     </li>
                   ))}
                 </ul>
@@ -640,13 +689,16 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* Segments we serve */}
+
+      {/* Segments We Serve */}
       <section className="border-y border-border py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 text-center">
           <p className="eyebrow">Segments we serve</p>
+
           <h2 className="mt-2 text-3xl font-extrabold sm:text-4xl">
             Engineered around real applications
           </h2>
+
           <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
             {segments.map((segment) => (
               <div
@@ -654,6 +706,7 @@ export default function Home() {
                 className="group border border-primary/20 bg-card px-3 py-7 transition-colors hover:border-primary"
               >
                 <segment.icon className="mx-auto size-9 text-primary transition-transform group-hover:-translate-y-1" />
+
                 <p className="mt-4 text-sm font-bold leading-snug">
                   {segment.label}
                 </p>
@@ -662,36 +715,48 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* The company we are */}
+
+      {/* The Company We Are */}
       <section className="overflow-hidden bg-card">
         <div className="mx-auto grid max-w-7xl items-stretch lg:grid-cols-2">
           <div className="px-4 py-16 sm:px-8 lg:py-24 lg:pr-16">
             <p className="eyebrow">The company we are</p>
+
             <h2 className="mt-2 text-3xl font-extrabold sm:text-4xl">
               Precision built into every batch
             </h2>
+
             <span className="rule-accent mt-4" />
+
             <p className="mt-6 max-w-xl leading-7 text-muted-foreground">
               TESQ Capacitors manufactures dependable motor-run and motor-start
               solutions from Delhi for OEMs, distributors and electrical
               businesses across India. Every batch is tested before dispatch.
             </p>
+
             <div className="mt-8 grid gap-5 sm:grid-cols-3">
               {strengths.map((strength) => (
                 <div key={strength.title}>
                   <strength.icon className="size-7 text-signal" />
-                  <h3 className="mt-3 text-base font-bold">{strength.title}</h3>
+
+                  <h3
+                    className="mt-3 text-base font-bold"
+                    dangerouslySetInnerHTML={{ __html: strength.title }}
+                  />
+
                   <p className="mt-1 text-xs leading-5 text-muted-foreground">
                     {strength.detail}
                   </p>
                 </div>
               ))}
             </div>
+
             <Link
               href="/about"
               className="mt-9 inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition-opacity hover:opacity-90"
             >
-              Discover TESQ <ArrowRightIcon className="size-4" />
+              Discover TESQ
+              <ArrowRightIcon className="size-4" />
             </Link>
           </div>
 
@@ -700,10 +765,11 @@ export default function Home() {
               <p className="text-sm font-bold uppercase text-accent">
                 Quality in numbers
               </p>
+
               <div className="mt-8 grid grid-cols-2 gap-px bg-primary-foreground/20">
                 {[
                   ["15+", "Years of expertise"],
-                  ["12", "Product series"],
+                  [String(capacitorProducts.length), "Products"],
                   ["100%", "Output tested"],
                   ["Pan-India", "Supply support"],
                 ].map(([value, label]) => (
@@ -711,6 +777,7 @@ export default function Home() {
                     <p className="text-3xl font-extrabold text-accent sm:text-4xl">
                       {value}
                     </p>
+
                     <p className="mt-2 text-sm text-primary-foreground/75">
                       {label}
                     </p>
@@ -721,24 +788,29 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       {/* CTA */}
-      <section className="border-t border-border bg-surface">
+      <section className="border-t border-border">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-14 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
             <p className="eyebrow">Built for your specification</p>
+
             <h2 className="mt-2 text-2xl font-extrabold sm:text-3xl">
               Need bulk supply or a custom OEM rating?
             </h2>
+
             <p className="mt-3 max-w-2xl text-muted-foreground">
               Share your MFD, voltage, terminal type and monthly quantity for
               pricing and lead-time guidance.
             </p>
           </div>
+
           <Link
             href="/contact"
             className="inline-flex w-fit items-center gap-2 rounded-md bg-signal px-7 py-3.5 text-sm font-bold text-signal-foreground transition-opacity hover:opacity-90"
           >
-            <PackageIcon className="size-4" /> Request a quotation
+            <PackageIcon className="size-4" />
+            Request a quotation
           </Link>
         </div>
       </section>
