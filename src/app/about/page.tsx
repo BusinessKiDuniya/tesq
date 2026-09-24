@@ -98,7 +98,7 @@ export default function About() {
         </div>
         <div className="self-start rounded-lg border border-border bg-surface p-6">
           <img
-            src={"/images/products/group.jpg"}
+            src={"/images/entrance.png"}
             alt="TESQ capacitor product range"
             className="w-full rounded-md"
             loading="lazy"

@@ -27,10 +27,10 @@ const slides = [
     eyebrow: "Complete capacitor range",
     title: "From compact fan units to heavy-duty starting.",
     copy: "Choose from MPP self-healing, electrolytic and gel-filled constructions, with ratings and terminations matched to your specification.",
-    image: "/images/1.png",
+    image: "/images/2.png",
     imageAlt: "TESQ capacitor product range",
     imageClass: "object-contain object-center lg:object-right",
-    overlay: "bg-black/35",
+    overlay: "bg-black/45",
   },
 ] as const;
 
@@ -75,7 +75,7 @@ export default function Hero() {
 
       <div className="relative z-20 mx-auto flex min-h-[590px] max-w-7xl items-end px-5 py-14 sm:px-8 lg:min-h-[680px] lg:items-center lg:py-20">
         <div key={active} className="animate-fade-in max-w-3xl">
-          <p className="tech-label mb-4 flex items-center gap-3 text-accent">
+          <p className="tech-label font-bold mb-4 flex items-center gap-3 text-accent">
             <span className="h-px w-10 bg-accent" /> {currentSlide.eyebrow}
           </p>
           <h1 className="max-w-3xl text-4xl leading-[1.06] font-bold sm:text-5xl lg:text-7xl">
@@ -87,13 +87,13 @@ export default function Hero() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/products"
-              className="inline-flex items-center gap-2 rounded-sm bg-accent px-6 py-3.5 text-sm font-bold text-accent-foreground transition-transform hover:-translate-y-0.5"
+              className="inline-flex w-fit items-center gap-2 rounded-md bg-signal px-7 py-3.5 text-sm font-bold text-signal-foreground transition-opacity hover:opacity-90"
             >
               View product range <ArrowRightIcon className="size-4" />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center rounded-sm border border-primary-foreground/40 bg-primary-deep/50 px-6 py-3.5 text-sm font-bold backdrop-blur-sm transition-colors hover:bg-primary-deep"
+              className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-60"
             >
               Request a quote
             </Link>

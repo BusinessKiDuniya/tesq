@@ -222,14 +222,6 @@ export default function Footer() {
               </a>
             </li>
           </ul>
-
-          {/* Enquiry CTA */}
-          <Link
-            href="/contact"
-            className="mt-6 inline-flex items-center rounded-md bg-[#D62617] px-5 py-2.5 text-sm font-bold text-white transition-all duration-200 hover:bg-[#3A2B94]"
-          >
-            Send an enquiry
-          </Link>
         </div>
       </div>
 

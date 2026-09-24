@@ -64,12 +64,6 @@ export default function Navbar() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              className="ml-3 rounded-md bg-signal px-5 py-2.5 text-sm font-bold text-signal-foreground transition-opacity hover:opacity-90"
-            >
-              Get a Quote
-            </Link>
           </nav>
 
           <button
