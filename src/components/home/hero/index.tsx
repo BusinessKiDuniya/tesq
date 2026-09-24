@@ -27,7 +27,7 @@ const slides = [
     eyebrow: "Complete capacitor range",
     title: "From compact fan units to heavy-duty starting.",
     copy: "Choose from MPP self-healing, electrolytic and gel-filled constructions, with ratings and terminations matched to your specification.",
-    image: "/images/products/group.jpg",
+    image: "/images/1.png",
     imageAlt: "TESQ capacitor product range",
     imageClass: "object-contain object-center lg:object-right",
     overlay: "bg-black/35",

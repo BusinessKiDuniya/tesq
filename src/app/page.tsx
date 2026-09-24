@@ -11,7 +11,6 @@ import WhyTesq from "@/components/home/why-tesq";
 import SegmentsWeServe from "@/components/home/segments-we-serve";
 import CompanyWeAre from "@/components/home/company-we-are";
 import CTA from "@/components/home/cta";
-import ManufacturingQuality from "@/components/home/manufacturing-quality";
 
 /*
  * Your actual product data does not contain `name`, `slug`,
@@ -80,8 +79,6 @@ export default function Home() {
 
       {/* Products */}
       <Products />
-
-      <ManufacturingQuality />
 
       {/* Why TESQ */}
       <WhyTesq />
