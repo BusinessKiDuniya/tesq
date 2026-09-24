@@ -9,18 +9,8 @@ import {
 } from "@phosphor-icons/react";
 import { useState } from "react";
 
-/*
- * Replace app/contact/page.tsx with this file.
- *
- * The form below is UI-only: onSubmit currently just shows a success
- * state. Wire handleSubmit to your email/CRM endpoint (an API route,
- * Formspree, Resend, etc.) before going live — see the TODO inside it.
- *
- * Update ADDRESS, PHONE, EMAIL and the map query below to your real details.
- */
-
 const ADDRESS = "TESQ Capacitors (India), Delhi, India";
-const PHONE = "+91 00000 00000";
+const PHONE = "+91 92113 03462";
 const EMAIL = "sales@tesqcapacitors.com";
 const MAP_QUERY = encodeURIComponent(ADDRESS);
 
@@ -94,17 +84,124 @@ export default function Contact() {
 
   return (
     <div>
-      <section className="hero-surface diag-edge text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-4 py-14 lg:py-20">
-          <p className="eyebrow">Get in touch</p>
-          <h1 className="mt-3 max-w-2xl text-4xl font-extrabold sm:text-5xl">
-            Talk to us about your capacitor requirement
-          </h1>
-          <p className="mt-5 max-w-2xl text-primary-foreground/80">
-            Share your MFD, voltage, terminal type and monthly quantity and
-            we&apos;ll get back with pricing and lead time.
-          </p>
+      <section className="relative isolate overflow-hidden bg-[#071a2d] text-primary-foreground">
+        {/* =========================================================
+      BACKGROUND
+  ========================================================= */}
+
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_20%,rgba(37,99,235,0.38),transparent_35%),radial-gradient(circle_at_15%_100%,rgba(14,165,233,0.16),transparent_35%)]" />
+
+        {/* Blue glow */}
+        <div className="pointer-events-none absolute -right-32 -top-32 size-[420px] rounded-full bg-blue-500/20 blur-3xl" />
+
+        {/* Bottom cyan glow */}
+        <div className="pointer-events-none absolute -bottom-48 left-1/3 size-[500px] rounded-full bg-cyan-500/10 blur-3xl" />
+
+        {/* =========================================================
+      DECORATIVE DOTS
+  ========================================================= */}
+
+        <div className="pointer-events-none absolute right-8 top-10 hidden opacity-30 lg:block">
+          <div className="grid grid-cols-6 gap-2">
+            {Array.from({ length: 24 }).map((_, index) => (
+              <span key={index} className="size-1.5 rounded-full bg-blue-200" />
+            ))}
+          </div>
         </div>
+
+        {/* Decorative ring */}
+        <div className="pointer-events-none absolute -right-28 top-1/2 hidden size-[460px] -translate-y-1/2 rounded-full border border-white/10 lg:block" />
+
+        <div className="pointer-events-none absolute -right-16 top-1/2 hidden size-[340px] -translate-y-1/2 rounded-full border border-white/5 lg:block" />
+
+        {/* =========================================================
+      CONTENT
+  ========================================================= */}
+
+        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
+          {/* Breadcrumb */}
+          <div className="mb-8 flex items-center gap-2 text-sm text-primary-foreground/50">
+            <span>Home</span>
+            <span>/</span>
+            <span className="text-primary-foreground/80">Contact</span>
+          </div>
+
+          {/* Eyebrow */}
+          <div className="flex items-center gap-3">
+            <span className="h-px w-10 bg-accent" />
+
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
+              Get in touch
+            </p>
+          </div>
+
+          {/* Heading */}
+          <h1 className="mt-5 max-w-4xl text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+            Let&apos;s find the right{" "}
+            <span className="text-accent">capacitor solution.</span>
+          </h1>
+
+          {/* Description */}
+          <p className="mt-7 max-w-2xl text-base leading-7 text-primary-foreground/70 sm:text-lg sm:leading-8">
+            Tell us what you need — from MFD and voltage ratings to terminal
+            type, application and monthly quantity. Our team can help identify
+            the right specification for your requirement.
+          </p>
+
+          {/* Quick information */}
+          <div className="mt-10 flex flex-wrap gap-x-8 gap-y-4 border-t border-white/10 pt-7">
+            <div className="flex items-center gap-3">
+              <div className="grid size-9 place-items-center rounded-full bg-white/10">
+                <PhoneIcon className="size-4 text-accent" />
+              </div>
+
+              <div>
+                <p className="text-[11px] font-bold uppercase tracking-wider text-white/40">
+                  Call us
+                </p>
+                <p className="mt-0.5 text-sm font-semibold text-white/90">
+                  {PHONE}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <div className="grid size-9 place-items-center rounded-full bg-white/10">
+                <EnvelopeSimpleIcon className="size-4 text-accent" />
+              </div>
+
+              <div>
+                <p className="text-[11px] font-bold uppercase tracking-wider text-white/40">
+                  Email
+                </p>
+                <p className="mt-0.5 text-sm font-semibold text-white/90">
+                  {EMAIL}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <div className="grid size-9 place-items-center rounded-full bg-white/10">
+                <ClockIcon className="size-4 text-accent" />
+              </div>
+
+              <div>
+                <p className="text-[11px] font-bold uppercase tracking-wider text-white/40">
+                  Working hours
+                </p>
+                <p className="mt-0.5 text-sm font-semibold text-white/90">
+                  Mon – Sat, 9:30 AM – 6:30 PM
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* =========================================================
+      BOTTOM DIAGONAL EDGE
+  ========================================================= */}
+
+        <div className="absolute bottom-0 left-0 h-10 w-full bg-[#f7faff] [clip-path:polygon(0_100%,100%_0,100%_100%)]" />
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-16 lg:py-20">

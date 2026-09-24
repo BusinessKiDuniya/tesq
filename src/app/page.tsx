@@ -55,11 +55,11 @@ export default function Home() {
       {/* Segments We Serve */}
       <SegmentsWeServe />
 
-      {/* Machine floor */}
-      <MachineFloor />
-
       {/* The Company We Are */}
       <CompanyWeAre />
+
+      {/* Machine floor */}
+      <MachineFloor />
 
       {/* CTA */}
       <CTA />

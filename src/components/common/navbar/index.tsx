@@ -28,10 +28,10 @@ export default function Navbar() {
           </p>
           <div className="flex items-center gap-4">
             <a
-              href="tel:+919810000000"
+              href="tel:+919211303462"
               className="flex items-center gap-1.5 hover:text-accent"
             >
-              <PhoneIcon className="size-3.5" /> +91 98100 00000
+              <PhoneIcon className="size-3.5" /> +91 92113 03462
             </a>
             <a
               href="mailto:sales@tesqcapacitors.com"

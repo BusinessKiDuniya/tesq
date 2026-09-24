@@ -3,7 +3,7 @@ import { HandHeartIcon } from "@phosphor-icons/react";
 export default function HandsAtWork() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 lg:py-20">
-      <div className="grid gap-10 overflow-hidden rounded-lg border border-border bg-card lg:grid-cols-2">
+      <div className="grid gap-10 overflow-hidden rounded-lg bg-card lg:grid-cols-2">
         <div className="aspect-[4/3] lg:aspect-auto">
           <img
             src="/images/women_empowerment.png"
@@ -14,8 +14,8 @@ export default function HandsAtWork() {
         </div>
 
         <div className="flex flex-col justify-center p-8 sm:p-10">
-          <HandHeartIcon className="size-7 text-accent" />
-          <p className="eyebrow mt-4">Checked by hand, not just machine</p>
+          <HandHeartIcon className="size-7 text-signal" />
+          <p className="mt-4 font-medium">Checked by hand, not just machine</p>
           <h2 className="mt-2 text-2xl font-extrabold sm:text-3xl">
             Every unit gets a human check before it&apos;s sealed
           </h2>

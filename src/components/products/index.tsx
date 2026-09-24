@@ -113,7 +113,7 @@ export default function ProductsPage({
             </Link>
 
             <a
-              href="tel:+919810000000"
+              href="tel:+919211303462"
               className="inline-flex items-center gap-2 rounded-md border border-border px-6 py-3 text-sm font-bold hover:border-primary hover:text-primary"
             >
               Call sales

@@ -10,7 +10,7 @@ export default function ProcessVideo() {
         preload="auto"
         poster="/images/manufacturing/video-poster.jpg"
       >
-        <source src="/videos/TESQ_raw-2.mp4" type="video/mp4" />
+        <source src="/videos/TESQ_raw.mp4" type="video/mp4" />
       </video>
 
       {/* Overlay for text legibility over the moving footage */}

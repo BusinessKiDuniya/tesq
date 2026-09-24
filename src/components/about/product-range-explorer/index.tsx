@@ -99,14 +99,7 @@ export default function ProductRangeExplorer() {
                   "
                 />
 
-                <span
-                  className="
-                    absolute left-5 top-5
-                    text-[11px] font-black
-                    tracking-[0.2em]
-                    text-[#f15a29]
-                  "
-                >
+                <span className="absolute left-5 top-5 text-[11px] font-black tracking-[0.2em] text-[#f15a29] bg-muted rounded-full p-1">
                   {range.number}
                 </span>
               </div>

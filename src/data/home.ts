@@ -1,22 +1,57 @@
 import {
-  CopyrightIcon,
   DropIcon,
   FactoryIcon,
   FanIcon,
-  FileZipIcon,
   GaugeIcon,
+  GearIcon,
+  LightningIcon,
   ShieldCheckIcon,
   SnowflakeIcon,
   WindIcon,
 } from "@phosphor-icons/react";
 
 export const segments = [
-  { icon: FanIcon, label: "Ceiling & Exhaust Fans" },
-  { icon: SnowflakeIcon, label: "Air Conditioning" },
-  { icon: DropIcon, label: "Water Pumps" },
-  { icon: WindIcon, label: "Air Coolers" },
-  { icon: CopyrightIcon, label: "Industrial Motors" },
-  { icon: FileZipIcon, label: "Power Correction" },
+  {
+    icon: FanIcon,
+    label: "Ceiling & Exhaust Fans",
+    image: "/images/segments/fan.png",
+    color: "blue",
+  },
+
+  {
+    icon: SnowflakeIcon,
+    label: "Air Conditioning",
+    image: "/images/segments/air-conditioning.png",
+    color: "sky",
+  },
+
+  {
+    icon: DropIcon,
+    label: "Water Pumps",
+    image: "/images/segments/water-pump.png",
+    color: "cyan",
+  },
+
+  {
+    icon: WindIcon,
+    label: "Air Coolers",
+    image: "/images/segments/air-cooler.png",
+    color: "orange",
+  },
+
+  {
+    icon: GearIcon,
+    label: "Industrial Motors",
+    image: "/images/segments/industrial-motor.png",
+    color: "purple",
+  },
+
+  {
+    icon: LightningIcon,
+    label: "Power Correction",
+    image: "/images/segments/power-correction.png",
+    color: "green",
+  },
 ];
 
 export const SLIDES = [

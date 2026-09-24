@@ -10,6 +10,7 @@ import {
   MailboxIcon,
   MapPinIcon,
   PhoneIcon,
+  YoutubeLogoIcon,
 } from "@phosphor-icons/react";
 
 import Link from "next/link";
@@ -60,7 +61,7 @@ export default function Footer() {
           {/* Social Links */}
           <div className="mt-6 flex items-center gap-2.5">
             <a
-              href="https://www.facebook.com/"
+              href="https://www.facebook.com/people/TESQ-Capacitor-BRAND/61578624623000/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
@@ -70,7 +71,7 @@ export default function Footer() {
             </a>
 
             <a
-              href="https://www.instagram.com/"
+              href="https://www.instagram.com/tesq_capacitor"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -80,7 +81,7 @@ export default function Footer() {
             </a>
 
             <a
-              href="https://www.linkedin.com/"
+              href="www.linkedin.com/in/tesq-capacitor-041157401"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -90,7 +91,17 @@ export default function Footer() {
             </a>
 
             <a
-              href="https://wa.me/919810000000"
+              href="https://www.youtube.com/@TESQCAPACITOR23"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Youtube"
+              className="flex size-9 items-center justify-center rounded-full border border-[#3A2B94]/15 bg-white text-[#3A2B94] transition-all duration-200 hover:border-[#3A2B94] hover:bg-[#3A2B94] hover:text-white"
+            >
+              <YoutubeLogoIcon className="size-[18px]" weight="fill" />
+            </a>
+
+            <a
+              href="https://wa.me/919211303462"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
@@ -111,7 +122,7 @@ export default function Footer() {
             <li>
               <Link
                 href="/"
-                className="text-[#5F6368] transition-colors hover:text-[#3A2B94]"
+                className="text-[#5F6368] transition-colors hover:text-[#3A2B94] hover:underline"
               >
                 Home
               </Link>
@@ -120,7 +131,7 @@ export default function Footer() {
             <li>
               <Link
                 href="/about"
-                className="text-[#5F6368] transition-colors hover:text-[#3A2B94]"
+                className="text-[#5F6368] transition-colors hover:text-[#3A2B94] hover:underline"
               >
                 About Us
               </Link>
@@ -129,7 +140,7 @@ export default function Footer() {
             <li>
               <Link
                 href="/products"
-                className="text-[#5F6368] transition-colors hover:text-[#3A2B94]"
+                className="text-[#5F6368] transition-colors hover:text-[#3A2B94] hover:underline"
               >
                 Products
               </Link>
@@ -138,7 +149,7 @@ export default function Footer() {
             <li>
               <Link
                 href="/contact"
-                className="text-[#5F6368] transition-colors hover:text-[#3A2B94]"
+                className="text-[#5F6368] transition-colors hover:text-[#3A2B94] hover:underline"
               >
                 Contact / Enquiry
               </Link>
@@ -157,9 +168,8 @@ export default function Footer() {
               <li key={product.id}>
                 <Link
                   href={`/products/${product.id}`}
-                  className="group inline-flex items-center gap-1.5 text-[#5F6368] transition-colors hover:text-[#3A2B94]"
+                  className="group inline-flex items-center gap-1.5 text-[#5F6368] transition-colors hover:text-[#3A2B94] hover:underline"
                 >
-                  <span className="h-1 w-1 rounded-full bg-[#D62617] opacity-0 transition-opacity group-hover:opacity-100" />
                   {getProductName(product)}
                 </Link>
               </li>
@@ -201,10 +211,10 @@ export default function Footer() {
               />
 
               <a
-                href="tel:+919810000000"
+                href="tel:+919211303462"
                 className="text-[#5F6368] transition-colors hover:text-[#D62617]"
               >
-                +91 98100 00000
+                +91 919211 303462
               </a>
             </li>
 

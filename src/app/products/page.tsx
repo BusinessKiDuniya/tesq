@@ -22,19 +22,78 @@ export default function Products() {
   return (
     <div>
       {/* Hero */}
-      <section className="hero-surface diag-edge text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-4 py-14 lg:py-16">
-          <p className="eyebrow">Product Catalogue</p>
+      <section className="relative isolate overflow-hidden bg-[#071a2d] text-primary-foreground">
+        {/* Background */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_25%,rgba(37,99,235,0.38),transparent_35%),radial-gradient(circle_at_10%_90%,rgba(14,165,233,0.16),transparent_35%)]" />
 
-          <h1 className="mt-3 text-4xl font-extrabold sm:text-5xl">
-            Capacitor range
+        {/* Product-side glow */}
+        <div className="pointer-events-none absolute -right-24 top-1/2 size-[420px] -translate-y-1/2 rounded-full bg-blue-500/15 blur-3xl" />
+
+        {/* Decorative dots */}
+        <div className="pointer-events-none absolute right-8 top-10 hidden opacity-30 lg:block">
+          <div className="grid grid-cols-6 gap-2">
+            {Array.from({ length: 24 }).map((_, index) => (
+              <span key={index} className="size-1.5 rounded-full bg-blue-200" />
+            ))}
+          </div>
+        </div>
+
+        {/* Decorative ring */}
+        <div className="pointer-events-none absolute -right-20 top-1/2 hidden size-[420px] -translate-y-1/2 rounded-full border border-white/10 lg:block" />
+
+        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-20">
+          {/* Breadcrumb */}
+          <div className="mb-8 flex items-center gap-2 text-sm text-primary-foreground/50">
+            <span>Home</span>
+            <span>/</span>
+            <span className="text-primary-foreground/80">
+              Product Catalogue
+            </span>
+          </div>
+
+          {/* Eyebrow */}
+          <div className="flex items-center gap-3">
+            <span className="h-px w-10 bg-accent" />
+
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">
+              Product Catalogue
+            </p>
+          </div>
+
+          {/* Heading */}
+          <h1 className="mt-5 max-w-3xl text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+            Capacitors engineered for{" "}
+            <span className="text-accent">every application.</span>
           </h1>
 
-          <p className="mt-4 max-w-2xl text-primary-foreground/80">
-            Explore TESQ capacitor solutions across motor, AC, panel, fan,
-            washing machine and other electrical applications.
+          {/* Description */}
+          <p className="mt-6 max-w-2xl text-base leading-7 text-primary-foreground/70 sm:text-lg sm:leading-8">
+            Explore the TESQ range of capacitor solutions for motors, air
+            conditioning, fans, pumps, washing machines, control panels and
+            other electrical applications.
           </p>
+
+          {/* Product categories */}
+          <div className="mt-9 flex flex-wrap gap-2">
+            {[
+              "Motor Capacitors",
+              "AC Capacitors",
+              "Fan Capacitors",
+              "Pump Capacitors",
+              "Panel Solutions",
+            ].map((item) => (
+              <span
+                key={item}
+                className="rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-xs font-semibold text-white/75 backdrop-blur-sm"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
+
+        {/* Bottom diagonal edge */}
+        <div className="absolute bottom-0 left-0 h-10 w-full bg-[#f7faff] [clip-path:polygon(0_100%,100%_0,100%_100%)]" />
       </section>
 
       {/* Catalogue */}

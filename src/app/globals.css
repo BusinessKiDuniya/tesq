@@ -115,7 +115,7 @@
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-signal);
 }
 
 @utility hero-surface {
@@ -167,7 +167,7 @@
   display: block;
   width: 3.5rem;
   height: 0.25rem;
-  background: var(--color-accent);
+  background: var(--color-signal);
 }
 
 @utility company-panel {
