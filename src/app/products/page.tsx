@@ -1,25 +1,27 @@
 "use client";
 
-import { capacitorProducts } from "@/data";
-
+import { capacitorProducts, productApplications } from "@/data";
+import { getProductName } from "@/libs/home";
 import { ArrowRightIcon } from "@phosphor-icons/react";
-
 import Link from "next/link";
-
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 export default function Products() {
-  const [active, setActive] = useState<string>("All");
+  const [active, setActive] = useState("All");
 
-  // Your current product data does not contain the old `category` field.
-  // All current products have `application: "Agriculture"`.
-  const list = capacitorProducts;
+  const list = useMemo(() => {
+    if (active === "All") {
+      return capacitorProducts;
+    }
 
-  const getProductName = (product: (typeof capacitorProducts)[number]) =>
-    product.modelCode ?? `${product.capacitance} Capacitor`;
+    return capacitorProducts.filter(
+      (product) => product.application.trim() === active,
+    );
+  }, [active]);
 
   return (
     <div>
+      {/* Hero */}
       <section className="hero-surface diag-edge text-primary-foreground">
         <div className="mx-auto max-w-7xl px-4 py-14 lg:py-16">
           <p className="eyebrow">Product Catalogue</p>
@@ -29,13 +31,13 @@ export default function Products() {
           </h1>
 
           <p className="mt-4 max-w-2xl text-primary-foreground/80">
-            Explore our capacitor range engineered for reliable performance
-            across motor, pump, fan, appliance and industrial applications.
-            Every product is tested for quality before dispatch.
+            Explore TESQ capacitor solutions across motor, AC, panel, fan,
+            washing machine and other electrical applications.
           </p>
         </div>
       </section>
 
+      {/* Catalogue */}
       <section className="mx-auto max-w-7xl px-4 py-12">
         {/* Filters */}
         <div className="flex flex-wrap gap-2">
@@ -52,43 +54,48 @@ export default function Products() {
             All
           </button>
 
-          <button
-            type="button"
-            disabled
-            className="cursor-not-allowed rounded-md border border-border bg-card px-4 py-2 text-sm font-semibold text-muted-foreground opacity-60"
-            title="Product categories will be available once category data is added to the product model."
-          >
-            Categories coming soon
-          </button>
+          {productApplications.map((category) => (
+            <button
+              key={category}
+              type="button"
+              onClick={() => setActive(category)}
+              className={
+                "rounded-md border px-4 py-2 text-sm font-semibold transition-colors " +
+                (active === category
+                  ? "border-primary bg-primary text-primary-foreground"
+                  : "border-border bg-card text-foreground/80 hover:border-primary hover:text-primary")
+              }
+            >
+              {category}
+            </button>
+          ))}
         </div>
 
         {/* Product count */}
         <div className="mt-6 flex items-center justify-between">
           <p className="text-sm text-muted-foreground">
             Showing{" "}
-            <span className="font-semibold text-foreground">
-              {list.length}
-            </span>{" "}
-            products
+            <span className="font-semibold text-foreground">{list.length}</span>{" "}
+            {list.length === 1 ? "product" : "products"}
           </p>
         </div>
 
         {/* Products */}
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {list.map((p) => {
-            const productName = getProductName(p);
+          {list.map((product) => {
+            const productName = getProductName(product);
 
             return (
               <Link
-                key={p.id}
-                href={`/products/${p.id}`}
+                key={product.id}
+                href={`/products/${product.id}`}
                 className="card-industrial group flex flex-col overflow-hidden"
               >
-                {/* Product image */}
+                {/* Image */}
                 <div className="relative aspect-square w-full overflow-hidden bg-[#f4f4f2]">
                   <img
-                    src={`/images/products/capacitor_products/${p.image}`}
-                    alt={`${productName} - ${p.capacitance}`}
+                    src={`/images/products/capacitor_products/${product.image}`}
+                    alt={`${productName} - ${product.capacitance}`}
                     loading="lazy"
                     className="
                       block
@@ -103,10 +110,10 @@ export default function Products() {
                   />
                 </div>
 
-                {/* Product details */}
+                {/* Details */}
                 <div className="flex flex-1 flex-col border-t border-border p-5">
                   <p className="text-[11px] font-bold tracking-widest text-muted-foreground uppercase">
-                    {p.application}
+                    {product.application}
                   </p>
 
                   <h2 className="mt-1 text-lg font-bold group-hover:text-primary">
@@ -114,35 +121,36 @@ export default function Products() {
                   </h2>
 
                   <p className="mt-2 text-sm text-muted-foreground">
-                    {p.capacitance} · {p.ratedVoltage} · {p.dielectric}
+                    {product.capacitance} · {product.ratedVoltage} ·{" "}
+                    {product.dielectric}
                   </p>
 
                   <dl className="mt-4 space-y-1 text-sm">
                     <div className="flex gap-2">
                       <dt className="font-semibold">Capacitance:</dt>
                       <dd className="text-muted-foreground">
-                        {p.capacitance}
+                        {product.capacitance}
                       </dd>
                     </div>
 
                     <div className="flex gap-2">
                       <dt className="font-semibold">Voltage:</dt>
                       <dd className="text-muted-foreground">
-                        {p.ratedVoltage}
+                        {product.ratedVoltage}
                       </dd>
                     </div>
 
                     <div className="flex gap-2">
                       <dt className="font-semibold">Frequency:</dt>
                       <dd className="text-muted-foreground">
-                        {p.ratedFrequency}
+                        {product.ratedFrequency}
                       </dd>
                     </div>
 
                     <div className="flex gap-2">
                       <dt className="font-semibold">Tolerance:</dt>
                       <dd className="text-muted-foreground">
-                        {p.capacitanceTolerance}
+                        {product.capacitanceTolerance}
                       </dd>
                     </div>
                   </dl>
@@ -156,6 +164,14 @@ export default function Products() {
             );
           })}
         </div>
+
+        {list.length === 0 && (
+          <div className="py-20 text-center">
+            <p className="text-muted-foreground">
+              No products found in this category.
+            </p>
+          </div>
+        )}
       </section>
     </div>
   );

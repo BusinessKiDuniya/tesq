@@ -1,4 +1,5 @@
 "use client"
+import ProductRangeExplorer from "@/components/about/product-range-explorer";
 import {
   FactoryIcon,
   RecycleIcon,
@@ -119,6 +120,8 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      <ProductRangeExplorer/>
 
       <section className="bg-surface py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4">

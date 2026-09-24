@@ -15,11 +15,22 @@ import {
 import Link from "next/link";
 
 export default function Footer() {
-  const footerProducts = capacitorProducts.slice(0, 6);
+  const footerProductIds = [
+    "cap-180-440v",
+    "cap-50-440v",
+    "cap-72-250v",
+    "tcv-1zt329",
+    "tc7ts-ze07-s",
+    "tc7ts-zio6",
+  ];
 
-  const getProductName = (
-    product: (typeof capacitorProducts)[number],
-  ) => {
+  const footerProducts = footerProductIds
+    .map((id) => capacitorProducts.find((product) => product.id === id))
+    .filter((product): product is (typeof capacitorProducts)[number] =>
+      Boolean(product),
+    );
+
+  const getProductName = (product: (typeof capacitorProducts)[number]) => {
     return product.modelCode ?? `${product.capacitance} Capacitor`;
   };
 
@@ -42,8 +53,8 @@ export default function Footer() {
           </Link>
 
           <p className="mt-4 max-w-xs text-sm leading-6 text-[#5F6368]">
-            Reliable capacitor solutions engineered for demanding motor,
-            pump, fan, appliance and industrial applications.
+            Reliable capacitor solutions engineered for demanding motor, pump,
+            fan, appliance and industrial applications.
           </p>
 
           {/* Social Links */}

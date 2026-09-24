@@ -15,15 +15,10 @@ export default function ProductsPage({
 }: {
   product: CapacitorProduct;
 }) {
-  const productName =
-    product.modelCode ?? `${product.capacitance} Capacitor`;
+  const productName = product.modelCode ?? `${product.capacitance} Capacitor`;
 
   const related = capacitorProducts
-    .filter(
-      (p) =>
-        p.id !== product.id &&
-        p.application === product.application
-    )
+    .filter((p) => p.id !== product.id && p.application === product.application)
     .slice(0, 3);
 
   const specs: [string, string][] = [
@@ -84,10 +79,9 @@ export default function ProductsPage({
           <span className="rule-accent mt-4" />
 
           <p className="mt-5 text-muted-foreground">
-            TESQ capacitor designed for reliable performance in{" "}
-            {product.application.toLowerCase()} applications, with a{" "}
-            {product.capacitance} capacitance rating and{" "}
-            {product.ratedVoltage} rated voltage.
+            TESQ capacitor designed for reliable electrical performance, with a{" "}
+            {product.capacitance} capacitance rating and {product.ratedVoltage}{" "}
+            rated voltage.
           </p>
 
           {/* Key specifications */}
@@ -98,10 +92,7 @@ export default function ProductsPage({
               ["Frequency", product.ratedFrequency],
               ["Dielectric", product.dielectric],
             ].map(([key, value]) => (
-              <div
-                key={key}
-                className="rounded-md border border-border p-4"
-              >
+              <div key={key} className="rounded-md border border-border p-4">
                 <p className="text-[11px] font-bold tracking-widest text-muted-foreground uppercase">
                   {key}
                 </p>
@@ -145,10 +136,7 @@ export default function ProductsPage({
               <table className="w-full text-sm">
                 <tbody>
                   {specs.map(([key, value], index) => (
-                    <tr
-                      key={key}
-                      className={index % 2 ? "bg-surface" : ""}
-                    >
+                    <tr key={key} className={index % 2 ? "bg-surface" : ""}>
                       <th
                         scope="row"
                         className="w-2/5 border-b border-border p-4 text-left font-semibold"
@@ -200,9 +188,7 @@ export default function ProductsPage({
       {/* Related products */}
       {related.length > 0 && (
         <section className="mx-auto max-w-7xl px-4 py-14">
-          <h2 className="text-2xl font-extrabold">
-            Related capacitors
-          </h2>
+          <h2 className="text-2xl font-extrabold">Related capacitors</h2>
 
           <span className="rule-accent mt-3" />
 

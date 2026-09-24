@@ -25,8 +25,7 @@ export async function generateMetadata({ params }: ProductPageProps) {
     };
   }
 
-  const productName =
-    product.modelCode ?? `${product.capacitance} Capacitor`;
+  const productName = product.modelCode ?? `${product.capacitance} Capacitor`;
 
   const title = `${productName} | ${product.capacitance} — TESQ Capacitors`;
 
@@ -49,9 +48,7 @@ export async function generateMetadata({ params }: ProductPageProps) {
   };
 }
 
-export default async function ProductDetail({
-  params,w
-}: ProductPageProps) {
+export default async function ProductDetail({ params }: ProductPageProps) {
   const { slug } = await params;
 
   const product = getProduct(slug);
