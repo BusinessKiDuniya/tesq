@@ -95,7 +95,7 @@ export const capacitorProducts: CapacitorProduct[] = [
   },
   {
     id: "cap-50-4-440v",
-    image: "50 + 4 steel.png",
+    image: "50-4-steel.png",
     modelCode: "TC75T-ZI22",
     application: "AC CONDITION CAPACITORS",
     capacitance: "50+4 MFD",
@@ -123,7 +123,7 @@ export const capacitorProducts: CapacitorProduct[] = [
   },
   {
     id: "cap-36-4-440v",
-    image: "36+4 steel.png",
+    image: "36-4-steel.png",
     modelCode: "TC75T-ZI22",
     application: "AC CONDITION CAPACITORS",
     capacitance: "36+4 MFD",
