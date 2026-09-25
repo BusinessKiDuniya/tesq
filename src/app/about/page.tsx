@@ -43,6 +43,69 @@ const values = [
   },
 ];
 
+const cardStyles = [
+  {
+    // Blue
+    gradient:
+      "bg-[radial-gradient(circle_at_88%_18%,rgba(59,130,246,0.16),transparent_32%),linear-gradient(135deg,#ffffff_55%,#f1f6ff_100%)]",
+    iconBg: "bg-blue-50",
+    iconColor: "text-blue-600",
+    iconBorder: "border-blue-100",
+    accent: "bg-blue-500",
+    watermark: "text-blue-500",
+  },
+  {
+    // Green
+    gradient:
+      "bg-[radial-gradient(circle_at_88%_18%,rgba(16,185,129,0.17),transparent_32%),linear-gradient(135deg,#ffffff_55%,#f0fcf8_100%)]",
+    iconBg: "bg-emerald-50",
+    iconColor: "text-emerald-600",
+    iconBorder: "border-emerald-100",
+    accent: "bg-emerald-400",
+    watermark: "text-emerald-500",
+  },
+  {
+    // Purple
+    gradient:
+      "bg-[radial-gradient(circle_at_88%_18%,rgba(139,92,246,0.16),transparent_32%),linear-gradient(135deg,#ffffff_55%,#f7f3ff_100%)]",
+    iconBg: "bg-violet-50",
+    iconColor: "text-violet-600",
+    iconBorder: "border-violet-100",
+    accent: "bg-violet-400",
+    watermark: "text-violet-500",
+  },
+  {
+    // Orange
+    gradient:
+      "bg-[radial-gradient(circle_at_88%_18%,rgba(249,115,22,0.17),transparent_32%),linear-gradient(135deg,#ffffff_55%,#fff7ed_100%)]",
+    iconBg: "bg-orange-50",
+    iconColor: "text-orange-500",
+    iconBorder: "border-orange-100",
+    accent: "bg-orange-400",
+    watermark: "text-orange-500",
+  },
+  {
+    // Light blue
+    gradient:
+      "bg-[radial-gradient(circle_at_88%_18%,rgba(59,130,246,0.14),transparent_32%),linear-gradient(135deg,#ffffff_55%,#f2f7ff_100%)]",
+    iconBg: "bg-blue-50",
+    iconColor: "text-blue-600",
+    iconBorder: "border-blue-100",
+    accent: "bg-blue-400",
+    watermark: "text-blue-500",
+  },
+  {
+    // Pink / red
+    gradient:
+      "bg-[radial-gradient(circle_at_88%_18%,rgba(244,63,94,0.15),transparent_32%),linear-gradient(135deg,#ffffff_55%,#fff3f6_100%)]",
+    iconBg: "bg-rose-50",
+    iconColor: "text-rose-500",
+    iconBorder: "border-rose-100",
+    accent: "bg-rose-400",
+    watermark: "text-rose-400",
+  },
+];
+
 export default function About() {
   return (
     <div>
@@ -193,13 +256,19 @@ export default function About() {
 
       <ProductRangeExplorer />
 
-      <section className="relative overflow-hidden bg-[#f7faff] py-16 lg:py-20">
-        <div className="pointer-events-none absolute -left-40 -top-40 size-96 rounded-full bg-blue-100/40 blur-3xl" />
+      <section className="relative overflow-hidden bg-[#f7faff] py-16 sm:py-20 lg:py-24">
+        {/* =====================================================
+          BACKGROUND DECORATION
+      ====================================================== */}
 
-        <div className="pointer-events-none absolute -bottom-40 -right-40 size-96 rounded-full bg-blue-100/40 blur-3xl" />
+        {/* Top-left glow */}
+        <div className="pointer-events-none absolute -left-40 -top-40 size-[420px] rounded-full bg-blue-100/40 blur-3xl" />
 
-        {/* Decorative dots - top right */}
-        <div className="pointer-events-none absolute right-8 top-10 hidden opacity-50 lg:block">
+        {/* Bottom-right glow */}
+        <div className="pointer-events-none absolute -bottom-48 -right-40 size-[460px] rounded-full bg-blue-100/40 blur-3xl" />
+
+        {/* Top-right dots */}
+        <div className="pointer-events-none absolute right-8 top-10 hidden opacity-45 lg:block">
           <div className="grid grid-cols-6 gap-2">
             {Array.from({ length: 24 }).map((_, index) => (
               <span key={index} className="size-1.5 rounded-full bg-blue-200" />
@@ -207,8 +276,8 @@ export default function About() {
           </div>
         </div>
 
-        {/* Decorative dots - bottom left */}
-        <div className="pointer-events-none absolute bottom-10 left-8 hidden opacity-50 lg:block">
+        {/* Bottom-left dots */}
+        <div className="pointer-events-none absolute bottom-12 left-8 hidden opacity-40 lg:block">
           <div className="grid grid-cols-6 gap-2">
             {Array.from({ length: 18 }).map((_, index) => (
               <span key={index} className="size-1.5 rounded-full bg-blue-200" />
@@ -216,66 +285,183 @@ export default function About() {
           </div>
         </div>
 
-        {/* =========================================================
+        {/* =====================================================
           CONTENT
-      ========================================================= */}
+      ====================================================== */}
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
-          {/* Heading */}
+          {/* Section heading */}
           <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow">What Sets Us Apart</p>
+            <div className="flex items-center justify-center gap-3">
+              <span className="h-px w-8 bg-blue-400" />
 
-            <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-[#10233f] sm:text-4xl lg:text-[42px] lg:leading-[1.1]">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-600">
+                What Sets Us Apart
+              </p>
+
+              <span className="h-px w-8 bg-blue-400" />
+            </div>
+
+            <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-[#10233f] sm:text-4xl lg:text-[42px] lg:leading-[1.1]">
               Quality, safety and productivity
             </h2>
 
-            <span className="rule-accent mx-auto mt-4" />
+            <span className="mx-auto mt-5 block h-1 w-12 rounded-full bg-blue-500" />
 
-            <p className="mx-auto mt-5 max-w-2xl text-sm leading-6 text-muted-foreground sm:text-base">
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-6 text-[#65748b] sm:text-base">
               Designed around dependable performance, safe operation and
               practical efficiency for demanding industrial applications.
             </p>
           </div>
 
-          {/* =========================================================
-            FEATURE CARDS
-        ========================================================= */}
+          {/* =====================================================
+            CARDS
+        ====================================================== */}
 
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {values.map((value, index) => {
               const Icon = value.icon;
+              const style = cardStyles[index % cardStyles.length];
 
               return (
                 <article
                   key={value.title}
-                  className="group relative min-h-[300px] overflow-hidden rounded-2xl border border-white/80 bg-white p-7 shadow-[0_10px_35px_rgba(31,67,120,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(31,67,120,0.14)] sm:p-8"
+                  className={`
+                  group relative min-h-[300px]
+                  overflow-hidden
+                  rounded-[20px]
+                  border border-white
+                  ${style.gradient}
+                  p-7
+                  shadow-[0_8px_30px_rgba(31,67,120,0.07)]
+                  transition-all duration-300
+                  hover:-translate-y-1
+                  hover:shadow-[0_18px_45px_rgba(31,67,120,0.13)]
+                  sm:p-8
+                `}
                 >
-                  {/* Card gradient */}
-                  <div className="pointer-events-none absolute inset-0" />
+                  {/* ==========================================
+                    LARGE BACKGROUND ICON
+                =========================================== */}
 
-                  {/* Large watermark icon */}
                   <Icon
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-5 -top-4 size-40 opacity-[0.3] text-primary"
+                    weight="regular"
+                    className={`
+                    pointer-events-none
+                    absolute
+                    -right-4
+                    -top-5
+                    size-[150px]
+                    ${style.watermark}
+                    opacity-[0.22]
+                    transition-all
+                    duration-500
+                    group-hover:scale-105
+                    group-hover:opacity-[0.28]
+                  `}
                   />
 
-                  <div className="relative z-10 grid size-14 place-items-center rounded-full border shadow-sm transition-transform duration-300 group-hover:-translate-y-1">
-                    <Icon weight="regular" className="size-7" />
+                  {/* ==========================================
+                    ICON BADGE
+                =========================================== */}
+
+                  <div
+                    className={`
+                    relative z-10
+                    grid size-14
+                    place-items-center
+                    rounded-full
+                    border
+                    ${style.iconBorder}
+                    ${style.iconBg}
+                    shadow-[0_4px_14px_rgba(31,67,120,0.08)]
+                    transition-transform
+                    duration-300
+                    group-hover:-translate-y-1
+                  `}
+                  >
+                    <Icon
+                      weight="regular"
+                      className={`size-7 ${style.iconColor}`}
+                    />
                   </div>
 
-                  <h3 className="relative z-10 mt-6 text-xl font-extrabold leading-tight text-[#10233f] sm:text-[22px]">
+                  {/* ==========================================
+                    TITLE
+                =========================================== */}
+
+                  <h3
+                    className="
+                    relative z-10
+                    mt-6
+                    max-w-[80%]
+                    text-xl
+                    font-extrabold
+                    leading-tight
+                    tracking-tight
+                    text-[#10233f]
+                    sm:text-[22px]
+                  "
+                  >
                     {value.title}
                   </h3>
 
-                  {/* Accent line */}
-                  <span className="relative z-10 mt-4 block h-1 w-10 rounded-full transition-all duration-300 group-hover:w-16" />
+                  {/* ==========================================
+                    ACCENT LINE
+                =========================================== */}
 
-                  <p className="relative z-10 mt-5 text-[15px] leading-7 text-[#526176]">
+                  <span
+                    className={`
+                    relative z-10
+                    mt-4
+                    block
+                    h-1
+                    w-11
+                    rounded-full
+                    ${style.accent}
+                    transition-all
+                    duration-300
+                    group-hover:w-16
+                  `}
+                  />
+
+                  {/* ==========================================
+                    DESCRIPTION
+                =========================================== */}
+
+                  <p
+                    className="
+                    relative z-10
+                    mt-5
+                    max-w-[95%]
+                    text-[15px]
+                    leading-7
+                    text-[#526176]
+                  "
+                  >
                     {value.text}
                   </p>
 
-                  {/* Bottom decorative line */}
-                  <div className="absolute bottom-0 left-0 h-1 w-full origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
+                  {/* ==========================================
+                    BOTTOM ACCENT
+                =========================================== */}
+
+                  <div
+                    className={`
+                    absolute
+                    bottom-0
+                    left-0
+                    h-1
+                    w-full
+                    origin-left
+                    scale-x-0
+                    ${style.accent}
+                    transition-transform
+                    duration-300
+                    group-hover:scale-x-100
+                  `}
+                  />
                 </article>
               );
             })}

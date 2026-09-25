@@ -11,6 +11,10 @@ import {
   MapPinIcon,
   PhoneIcon,
   YoutubeLogoIcon,
+  EnvelopeSimpleIcon,
+  CubeIcon,
+  UsersThreeIcon,
+  HouseIcon,
 } from "@phosphor-icons/react";
 
 import Link from "next/link";
@@ -32,7 +36,7 @@ export default function Footer() {
     );
 
   const getProductName = (product: (typeof capacitorProducts)[number]) => {
-    return product.modelCode ?? `${product.capacitance} Capacitor`;
+    return product.capacitance ?? `${product.capacitance} Capacitor`;
   };
 
   return (
@@ -118,43 +122,47 @@ export default function Footer() {
             Company
           </h4>
 
-          <ul className="mt-5 space-y-3 text-sm">
-            <li>
-              <Link
-                href="/"
-                className="text-[#5F6368] transition-colors hover:text-[#3A2B94] hover:underline"
-              >
-                Home
-              </Link>
-            </li>
+          <nav className="mt-5" aria-label="Company navigation">
+            <ul className="space-y-2">
+              {[
+                {
+                  icon: HouseIcon,
+                  label: "Home",
+                  path: "/",
+                },
+                {
+                  icon: UsersThreeIcon,
+                  label: "About Us",
+                  path: "/about",
+                },
+                {
+                  icon: CubeIcon,
+                  label: "Products",
+                  path: "/products",
+                },
+                {
+                  icon: EnvelopeSimpleIcon,
+                  label: "Contact / Enquiry",
+                  path: "/contact",
+                },
+              ].map((l) => (
+                <li key={l.label}>
+                  <Link href={l.path} className="group flex items-center gap-3 text-sm">
+                    <span className="grid size-8 shrink-0 place-items-center rounded-full bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-[0_8px_24px_rgba(58,43,148,0.18)]">
+                      <l.icon
+                        weight="fill"
+                        className="size-4 transition-transform duration-300 group-hover:scale-110"
+                      />
+                    </span>
 
-            <li>
-              <Link
-                href="/about"
-                className="text-[#5F6368] transition-colors hover:text-[#3A2B94] hover:underline"
-              >
-                About Us
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/products"
-                className="text-[#5F6368] transition-colors hover:text-[#3A2B94] hover:underline"
-              >
-                Products
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/contact"
-                className="text-[#5F6368] transition-colors hover:text-[#3A2B94] hover:underline"
-              >
-                Contact / Enquiry
-              </Link>
-            </li>
-          </ul>
+                    <span className="group inline-flex items-center gap-1.5 text-[#5F6368] transition-colors hover:text-[#3A2B94] hover:underline">
+                      {l.label}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
 
         {/* Products */}
@@ -186,14 +194,14 @@ export default function Footer() {
 
         {/* Contact */}
         <div>
-          <h4 className="text-xs font-bold tracking-[0.18em] text-[#3A2B94] uppercase">
+          <h4 className="text-xs font-bold tracking-[0.18em] text-primary uppercase">
             Reach Us
           </h4>
 
           <ul className="mt-5 space-y-4 text-sm">
             <li className="flex gap-3">
               <MapPinIcon
-                className="mt-0.5 size-[18px] shrink-0 text-[#3A2B94]"
+                className="mt-0.5 size-4 shrink-0 text-primary"
                 weight="bold"
               />
 

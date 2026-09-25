@@ -77,7 +77,7 @@ export default function SegmentsWeServe() {
           </p>
 
           <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-[#10233f] sm:text-4xl lg:text-[42px]">
-            Engineered around real applications
+            Capacitors around real applications
           </h2>
 
           <span className="rule-accent mx-auto mt-4" />
@@ -129,7 +129,7 @@ export default function SegmentsWeServe() {
                     LABEL
                 ================================================= */}
 
-                <div className="mt-4 flex min-h-[52px] items-start justify-center px-1">
+                <div className="mt-16 flex min-h-[52px] items-start justify-center px-1">
                   <h3 className="text-[16px] font-extrabold leading-[1.15] text-[#10233f] sm:text-[17px]">
                     {segment.label}
                   </h3>

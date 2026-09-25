@@ -16,6 +16,7 @@ export const segments = [
     label: "Ceiling & Exhaust Fans",
     image: "/images/segments/fan.png",
     color: "blue",
+    text: "Fan"
   },
 
   {
