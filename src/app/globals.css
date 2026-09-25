@@ -223,3 +223,30 @@
     transform: translateY(-50%) translateX(0);
   }
 }
+
+
+.quote-input {
+  width: 100%;
+  border: 1px solid #cbd2da;
+  background: #ffffff;
+  padding: 14px 16px;
+  font-size: 16px;
+  color: #172033;
+  outline: none;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.quote-input::placeholder {
+  color: #7a8490;
+}
+
+.quote-input:focus {
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 3px hsl(var(--primary) / 0.12);
+}
+
+textarea.quote-input {
+  min-height: 170px;
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import { capacitorProducts, productApplications } from "@/data";
-import { getProductName } from "@/libs/home";
+import { getProductName } from "@/lib/home";
 import { ArrowRightIcon } from "@phosphor-icons/react";
 import Link from "next/link";
 import { useMemo, useState } from "react";

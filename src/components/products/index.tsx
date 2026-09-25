@@ -19,6 +19,7 @@ import {
 } from "@phosphor-icons/react";
 
 import { capacitorProducts, type CapacitorProduct } from "@/data";
+import ProductEnquiryButton from "./product-enquiry-button";
 
 export default function ProductsPage({
   product,
@@ -135,13 +136,7 @@ export default function ProductsPage({
 
           {/* Actions */}
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href={`/contact?product=${encodeURIComponent(productName)}`}
-              className="inline-flex items-center gap-2 rounded-md bg-signal px-6 py-3 text-sm font-bold text-signal-foreground transition-all hover:-translate-y-0.5 hover:opacity-90"
-            >
-              <FileTextIcon className="size-4" />
-              Enquire about this product
-            </Link>
+            <ProductEnquiryButton productName={productName} />
 
             <a
               href="tel:+919211303462"

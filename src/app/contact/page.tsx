@@ -12,7 +12,6 @@ import { useState } from "react";
 const ADDRESS = "TESQ Capacitors (India), Delhi, India";
 const PHONE = "+91 92113 03462";
 const EMAIL = "sales@tesqcapacitors.com";
-const MAP_QUERY = encodeURIComponent(ADDRESS);
 
 const contactPoints = [
   {
@@ -68,18 +67,37 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Prevent duplicate submissions
+    if (status === "sending") return;
+
     setStatus("sending");
 
-    // TODO: replace with a real call, e.g.:
-    // await fetch("/api/contact", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(form),
-    // });
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...form,
+        }),
+      });
 
-    await new Promise((resolve) => setTimeout(resolve, 600));
-    setStatus("sent");
-    setForm(initialForm);
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(
+          data.error || data.message || "Failed to send enquiry.",
+        );
+      }
+
+      setStatus("sent");
+      setForm(initialForm);
+    } catch (error) {
+      console.error("[CONTACT FORM]", error);
+      setStatus("idle");
+    }
   };
 
   return (
@@ -334,10 +352,11 @@ export default function Contact() {
           <div className="overflow-hidden rounded-lg border border-border">
             <iframe
               title="TESQ Capacitors location"
-              src={`https://www.google.com/maps?q=${MAP_QUERY}&output=embed`}
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14605.976140012976!2d77.06215785!3d28.788429200000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d077e827b5551%3A0x36bf2e0fb985c5b8!2sSector%204%2C%20Khera%20Khurd%2C%20Delhi%2C%20110039!5e1!3m2!1sen!2sin!4v1790327973308!5m2!1sen!2sin"
               className="h-[420px] w-full lg:h-full"
               loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
             />
           </div>
         </div>
