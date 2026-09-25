@@ -76,14 +76,14 @@ export const capacitorProducts: CapacitorProduct[] = [
   },
 
   // ─────────────────────────────────────────────
-  // AC CONDITION CAPACITORS
+  // AC CONDITIONER CAPACITORS
   // ─────────────────────────────────────────────
 
   {
     id: "cap-50-440v",
     image: "50 steel.png",
     modelCode: "TC75T-ZI22",
-    application: "AC CONDITION CAPACITORS",
+    application: "AC CONDITIONER CAPACITORS",
     capacitance: "50 MFD",
     capacitanceTolerance: "±5%",
     ratedVoltage: "440 VAC",
@@ -97,7 +97,7 @@ export const capacitorProducts: CapacitorProduct[] = [
     id: "cap-50-4-440v",
     image: "50-4-steel.png",
     modelCode: "TC75T-ZI22",
-    application: "AC CONDITION CAPACITORS",
+    application: "AC CONDITIONER CAPACITORS",
     capacitance: "50+4 MFD",
     capacitanceTolerance: "±5%",
     ratedVoltage: "440 VAC",
@@ -111,7 +111,7 @@ export const capacitorProducts: CapacitorProduct[] = [
     id: "cap-45-440v",
     image: "45 steel.png",
     modelCode: "TC75T-ZI22",
-    application: "AC CONDITION CAPACITORS",
+    application: "AC CONDITIONER CAPACITORS",
     capacitance: "45 MFD",
     capacitanceTolerance: "±5%",
     ratedVoltage: "440 VAC",
@@ -125,7 +125,7 @@ export const capacitorProducts: CapacitorProduct[] = [
     id: "cap-36-4-440v",
     image: "36-4-steel.png",
     modelCode: "TC75T-ZI22",
-    application: "AC CONDITION CAPACITORS",
+    application: "AC CONDITIONER CAPACITORS",
     capacitance: "36+4 MFD",
     capacitanceTolerance: "±5%",
     ratedVoltage: "440 VAC",
@@ -144,7 +144,7 @@ export const capacitorProducts: CapacitorProduct[] = [
     id: "cap-72-440v-cyl",
     image: "72_2.png",
     modelCode: "TC75T-ZI22",
-    application: "AC CONDITION CAPACITORS",
+    application: "AC CONDITIONER CAPACITORS",
     capacitance: "72 MFD",
     capacitanceTolerance: "±5%",
     ratedVoltage: "440 VAC",

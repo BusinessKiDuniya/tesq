@@ -16,7 +16,7 @@ export default function ProductRangeExplorer() {
     },
     {
       number: "02",
-      title: "AC Condition Capacitors",
+      title: "AC Conditioner Capacitors",
       description:
         "Capacitor solutions for air-conditioning and AC motor applications across different capacitance requirements.",
       product: getProduct("cap-50-440v"),
