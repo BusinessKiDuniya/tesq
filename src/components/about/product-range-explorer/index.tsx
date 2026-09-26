@@ -95,7 +95,7 @@ export default function ProductRangeExplorer() {
                     object-contain
                     p-7
                     transition-transform duration-700
-                    group-hover:scale-105
+                    group-hover:scale-[1.07]
                   "
                 />
 
