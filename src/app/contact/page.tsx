@@ -34,7 +34,7 @@ const contactPoints = [
   {
     icon: ClockIcon,
     label: "Working hours",
-    value: "Mon – Sat, 9:30 AM – 6:30 PM",
+    value: "Mon – Son, 24/7",
   },
 ];
 
