@@ -164,7 +164,7 @@ export default function Products() {
                       object-center
                       transition-transform
                       duration-500
-                      group-hover:scale-[1.07]
+                      scale-[1.10]
                     "
                   />
                 </div>

@@ -87,7 +87,7 @@ export default function ProductsPage({
           <img
             src={`/images/products/capacitor_products/${product.image}`}
             alt={productName}
-            className="max-h-[420px] w-auto object-contain"
+            className="max-h-[450px] w-auto object-contain"
           />
         </div>
 
@@ -260,12 +260,12 @@ export default function ProductsPage({
                   href={`/products/${relatedProduct.id}`}
                   className="card-industrial group overflow-hidden"
                 >
-                  <div className="flex h-44 items-center justify-center bg-surface p-4">
+                  <div className="flex h-80 items-center justify-center bg-surface p-4">
                     <img
                       src={`/images/products/capacitor_products/${relatedProduct.image}`}
                       alt={relatedName}
                       loading="lazy"
-                      className="max-h-full w-auto object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+                      className="max-h-full w-auto object-contain transition-transform duration-500 scale-[1.03]"
                     />
                   </div>
 

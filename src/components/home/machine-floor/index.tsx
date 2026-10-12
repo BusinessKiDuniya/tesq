@@ -1,9 +1,9 @@
 export default function MachineFloor() {
   const machines = [
     {
-      src: "/images/1.png",
-      alt: "Capacitor winding machine on the TESQ production floor",
-      caption: "Automatic Capacitor Testing Machine",
+      src: "/images/Winding Machine.png",
+      alt: "Winding Machine",
+      caption: "Automatic Capacitor Winding Machine",
     },
     {
       src: "/images/2.png",
@@ -11,19 +11,14 @@ export default function MachineFloor() {
       caption: "Automatic Metal Spray Machine",
     },
     {
-      src: "/images/machine.png",
-      alt: "Electrical testing rig for finished capacitors",
-      caption: "Automatic Metal Spray Machine",
-    },
-      {
       src: "/images/Welding Machine.png",
       alt: "Welding Machine",
       caption: "Automatic Capacitor Welding Machine",
     },
     {
-      src: "/images/Winding Machine.png",
-      alt: "Winding Machine",
-      caption: "Automatic Capacitor Winding Machine",
+      src: "/images/machine.png",
+      alt: "Electrical testing rig for finished capacitors",
+      caption: "Automatic Metal Spray Machine",
     },
   ];
 
@@ -36,7 +31,7 @@ export default function MachineFloor() {
         </h2>
         <span className="rule-accent mt-4" />
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-3">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {machines.map((machine) => (
             <figure
               key={machine.src}

@@ -28,8 +28,8 @@ export const segments = [
 
   {
     icon: DropIcon,
-    label: "Water Pumps",
-    image: "/images/segments/water-pump.png",
+    label: "Submersible Pump",
+    image: "/images/segments/submersible-pump.png",
     color: "cyan",
   },
 

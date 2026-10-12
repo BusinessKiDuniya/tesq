@@ -86,7 +86,7 @@ export default function ProductRangeExplorer() {
               "
             >
               {/* Image */}
-              <div className="relative min-h-[270px] overflow-hidden bg-white">
+              <div className="relative min-h-[300px] overflow-hidden bg-white">
                 <img
                   src={`/images/products/capacitor_products/${range.product.image}`}
                   alt={range.title}
@@ -95,7 +95,7 @@ export default function ProductRangeExplorer() {
                     object-contain
                     p-7
                     transition-transform duration-700
-                    group-hover:scale-[1.07]
+                    scale-[1.5]
                   "
                 />
 

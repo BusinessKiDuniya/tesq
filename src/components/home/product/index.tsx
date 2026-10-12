@@ -76,16 +76,7 @@ export default function Products() {
                   src={`/images/products/capacitor_products/${product.image}`}
                   alt={getProductName(product)}
                   loading="lazy"
-                  className="
-                      block
-                      h-full
-                      w-full
-                      object-contain
-                      object-center
-                      transition-transform
-                      duration-500
-                      group-hover:scale-[1.07]
-                    "
+                  className="block h-full w-full object-contain object-center transition-transform duration-500 scale-[1.15]"
                 />
               </div>
 
