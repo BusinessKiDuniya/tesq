@@ -8,12 +8,12 @@ export default function MachineFloor() {
     {
       src: "/images/2.png",
       alt: "Capacitor filling and sealing machine",
-      caption: "Filling & sealing",
+      caption: "Automatic Metal Spray Machine",
     },
     {
       src: "/images/machine.png",
       alt: "Electrical testing rig for finished capacitors",
-      caption: "100% output testing",
+      caption: "Automatic Metal Spray Machine",
     },
       {
       src: "/images/Welding Machine.png",
