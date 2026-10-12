@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Products() {
   const featuredProductIds = [
     "cap-180-440v",
-    "cap-50-440v",
+    "tc7ts-zh22",
     "cap-50-4-440v",
     "cap-72-440v-cyl",
     "tcv-1zt329",

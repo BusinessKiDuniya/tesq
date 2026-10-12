@@ -3,7 +3,7 @@ export default function MachineFloor() {
     {
       src: "/images/1.png",
       alt: "Capacitor winding machine on the TESQ production floor",
-      caption: "Winding line",
+      caption: "Automatic Capacitor Testing Machine",
     },
     {
       src: "/images/2.png",
@@ -14,6 +14,16 @@ export default function MachineFloor() {
       src: "/images/machine.png",
       alt: "Electrical testing rig for finished capacitors",
       caption: "100% output testing",
+    },
+      {
+      src: "/images/Welding Machine.png",
+      alt: "Welding Machine",
+      caption: "Automatic Capacitor Welding Machine",
+    },
+    {
+      src: "/images/Winding Machine.png",
+      alt: "Winding Machine",
+      caption: "Automatic Capacitor Winding Machine",
     },
   ];
 
