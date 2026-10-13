@@ -8,7 +8,7 @@ export default function MachineFloor() {
     {
       src: "/images/2.png",
       alt: "Capacitor filling and sealing machine",
-      caption: "Automatic Capacitor Testing Machine",
+      caption: "Automatic Element Testing Machine",
     },
     {
       src: "/images/Welding Machine.png",

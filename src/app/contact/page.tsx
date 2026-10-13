@@ -10,7 +10,8 @@ import {
 import { useState } from "react";
 
 const ADDRESS = "TESQ Capacitors (India), Delhi, India";
-const PHONE = "+91 92113 03462";
+const DOMESTIC_PHONE = "+91 92113 03462";
+const INTERNATIONAL_PHONE = "+91 92113 03463";
 const EMAIL = "sales@tesqcapacitors.com";
 
 const contactPoints = [
@@ -21,9 +22,15 @@ const contactPoints = [
   },
   {
     icon: PhoneIcon,
-    label: "Call us",
-    value: PHONE,
-    href: `tel:${PHONE.replace(/\s/g, "")}`,
+    label: "Domestic enquiries",
+    value: DOMESTIC_PHONE,
+    href: `tel:${DOMESTIC_PHONE.replace(/\s/g, "")}`,
+  },
+  {
+    icon: PhoneIcon,
+    label: "International enquiries",
+    value: INTERNATIONAL_PHONE,
+    href: `tel:${INTERNATIONAL_PHONE.replace(/\s/g, "")}`,
   },
   {
     icon: EnvelopeSimpleIcon,
@@ -34,7 +41,7 @@ const contactPoints = [
   {
     icon: ClockIcon,
     label: "Working hours",
-    value: "Mon – Son, 24/7",
+    value: "Mon – Sun, 24/7",
   },
 ];
 
@@ -178,7 +185,10 @@ export default function Contact() {
                   Call us
                 </p>
                 <p className="mt-0.5 text-sm font-semibold text-white/90">
-                  {PHONE}
+                  Domestic: {DOMESTIC_PHONE}
+                </p>
+                <p className="mt-1 text-sm font-semibold text-white/90">
+                  International: {INTERNATIONAL_PHONE}
                 </p>
               </div>
             </div>
@@ -208,7 +218,7 @@ export default function Contact() {
                   Working hours
                 </p>
                 <p className="mt-0.5 text-sm font-semibold text-white/90">
-                  Mon – Sat, 9:30 AM – 6:30 PM
+                  Mon – Sun, 24/7
                 </p>
               </div>
             </div>
@@ -223,7 +233,7 @@ export default function Contact() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-16 lg:py-20">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {contactPoints.map((point) => (
             <div
               key={point.label}
@@ -352,7 +362,7 @@ export default function Contact() {
           <div className="overflow-hidden rounded-lg border border-border">
             <iframe
               title="TESQ Capacitors location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14605.976140012976!2d77.06215785!3d28.788429200000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d077e827b5551%3A0x36bf2e0fb985c5b8!2sSector%204%2C%20Khera%20Khurd%2C%20Delhi%2C%20110039!5e1!3m2!1sen!2sin!4v1790327973308!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233670.49346184428!2d76.74229269453127!3d28.799637399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390da82fafe14675%3A0xaea2f856377f4f42!2sTESQ%20CAPACITORS!5e1!3m2!1sen!2sin!4v1791892728582!5m2!1sen!2sin"
               className="h-[420px] w-full lg:h-full"
               loading="lazy"
               referrerPolicy="strict-origin-when-cross-origin"

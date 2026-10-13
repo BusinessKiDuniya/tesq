@@ -15,6 +15,7 @@ import {
   CubeIcon,
   UsersThreeIcon,
   HouseIcon,
+  TwitterLogoIcon,
 } from "@phosphor-icons/react";
 
 import Link from "next/link";
@@ -85,7 +86,17 @@ export default function Footer() {
             </a>
 
             <a
-              href="www.linkedin.com/in/tesq-capacitor-041157401"
+              href="https://x.com/Tesqcapcitors"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Twitter/X"
+              className="flex size-9 items-center justify-center rounded-full border border-[#3A2B94]/15 bg-white text-[#3A2B94] transition-all duration-200 hover:border-[#3A2B94] hover:bg-[#3A2B94] hover:text-white"
+            >
+              <TwitterLogoIcon className="size-[18px]" weight="fill" />
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/tesq-capacitor-041157401"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
